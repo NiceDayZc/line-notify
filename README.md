@@ -23,7 +23,6 @@
 
 ### ⚙️ Installation
 * Requires: `Python 3.8+`
-* Optional: Add Fresh Proxies to "proxies.txt" (https://proxyscrape.com)
 * Start: `py main.py`
 
 ---------------------------------------
