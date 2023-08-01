@@ -2,13 +2,12 @@ import httpx
 import threading
 import os
 
-x = "" # your bearer token
-z = {"content-type":"application/x-www-form-urlencoded","Authorization":"Bearer " + x}
-y = "" # message
-t = int("") # thread
+bearer_token = input("bearer_token > ")
+Message = input("Message > ")
+Thread = input(int("Thread > "))
 
 def a():
-    x = httpx.post("https://notify-api.line.me/api/notify",headers=z,data={"message": y})
+    x = httpx.post("https://notify-api.line.me/api/notify",headers={"content-type":"application/x-www-form-urlencoded","Authorization":"Bearer " + bearer_token},data={"message": Message})
     s = [200, 201, 204]
     if x.status_code in s:
         print("cool")
@@ -17,6 +16,6 @@ def a():
 
 try:
     while True:
-        if threading.active_count() < t:
+        if threading.active_count() < Thread:
             threading.Thread(target=a).start()
 except KeyboardInterrupt: os._exit(0)
